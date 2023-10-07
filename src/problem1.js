@@ -1,29 +1,13 @@
 function problem1(pobi, crong) {
   var answer;
-
-  if (pobi[1] !== pobi[0]+1 || crong[1] !== crong[0]+1) {
-    return -1;
-  }
-
-  // pobi
-  let pobi_left = Math.max(String(pobi[0]).split('').map(Number).reduce((a,b)=>a*b),
-      String(pobi[0]).split('').map(Number).reduce((a,b)=>a+b));
-  let pobi_right = Math.max(String(pobi[1]).split('').map(Number).reduce((a,b)=>a*b),
-      String(pobi[1]).split('').map(Number).reduce((a,b)=>a+b));
-  let pobi_answer = Math.max(pobi_left, pobi_right);
-
-  // crong
-  let crong_left = Math.max(String(crong[0]).split('').map(Number).reduce((a,b)=>a*b),
-      String(crong[0]).split('').map(Number).reduce((a,b)=>a+b));
-  let crong_right = Math.max(String(crong[1]).split('').map(Number).reduce((a,b)=>a*b),
-      String(crong[1]).split('').map(Number).reduce((a,b)=>a+b));
-  let crong_answer = Math.max(crong_left, crong_right);
-
-  if (pobi_answer > crong_answer) answer = 1;
-  else if (pobi_answer < crong_answer) answer = 2;
-  else if (pobi_answer === crong_answer) answer = 0;
-
   return answer;
+}
+
+// 페이지 번호의 각 자리 숫자를 모두 더하거나, 모두 곱해 가장 큰 수를 구한다
+function findLargerValue(pageNum) {
+  let multiplyPageNum = String(pageNum[0]).split('').map(Number).reduce((a,b)=>a*b);
+  let plusPageNum = String(pageNum[0]).split('').map(Number).reduce((a,b)=>a+b);
+  return Math.max(multiplyPageNum, plusPageNum);
 }
 
 module.exports = problem1;
