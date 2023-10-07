@@ -1,6 +1,28 @@
 function problem1(pobi, crong) {
   var answer;
-  return answer;
+
+  // 예외 처리
+  try {
+    // 페이지 오류 확인
+    if (hasPageError(pobi) || hasPageError(crong)) return -1;
+
+    // pobi 점수 연산
+    let pobiLeftValue = findLargerValue(pobi[0]);
+    let pobiRightValue = findLargerValue(pobi[1]);
+    let pobiScore = compareLeftRight(pobiLeftValue, pobiRightValue);
+
+    // crong 점수 연산
+    let crongLeftValue = findLargerValue(crong[0]);
+    let crongRightValue = findLargerValue(crong[1]);
+    let crongScore = compareLeftRight(crongLeftValue, crongRightValue);
+
+    // answer 도출
+    answer = output(pobiScore, crongScore);
+    return answer;
+
+  } catch (e) {
+    return -1;
+  }
 }
 
 // 왼쪽, 오른쪽 페이지에 오류가 있는지 확인
