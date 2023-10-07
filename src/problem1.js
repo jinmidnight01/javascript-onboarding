@@ -10,4 +10,9 @@ function findLargerValue(pageNum) {
   return Math.max(multiplyPageNum, plusPageNum);
 }
 
+// 왼쪽 페이지로 연산한 큰 수와 오른쪽 페이지로 연산한 큰 수 중 더 큰 수를 구한다
+function compareLeftRight(leftValue, rightValue) {
+  return Math.max(leftValue, rightValue);
+}
+
 module.exports = problem1;
